@@ -1,0 +1,14 @@
+{
+  "name": "brownes-of-naas-storefront",
+  "version": "1.0.0",
+  "description": "Static storefront with hosted admin product catalogue backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Product | Brownes of Naas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#071524;--ink-2:#0f2740;--parchment:#F6F2EA;--parchment-2:#E8E1CF;--brass:#C9A46E;--brass-light:#E4CC9B;--oxblood:#8A4B36;--moss:#19324A;--charcoal:#1B2230;--charcoal-soft:#485263;--max:1180px;}
+  *{box-sizing:border-box;} body{margin:0;background:var(--parchment);color:var(--charcoal);font-family:'Work Sans',sans-serif;line-height:1.6;overflow-x:hidden;overflow-y:hidden;-ms-overflow-style:none;scrollbar-width:none;} body::-webkit-scrollbar{display:none;} a{text-decoration:none;color:inherit;} h1,h2,h3{font-family:'Fraunces',serif;margin:0;} .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  header{background:rgba(6,18,34,0.96);border-bottom:1px solid rgba(201,164,110,0.28);position:sticky;top:0;z-index:50;} .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;} .logo .line1{font-family:'Fraunces',serif;color:var(--parchment);font-size:1.5rem;font-weight:600;} .logo .line2{display:block;font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--brass-light);font-style:italic;margin-top:2px;}
+  .panel{padding:72px 0 100px;} .frame{background:#fffdf8;border:1px solid rgba(33,29,23,0.12);border-radius:8px;padding:32px;} .grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:24px;} .login-box,.edit-box{background:linear-gradient(180deg, rgba(7,21,36,0.98), rgba(15,39,64,0.96));color:var(--parchment);padding:24px;border-radius:8px;} input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(201,164,110,0.3);border-radius:4px;background:#fdfaf0;color:var(--charcoal);font:inherit;margin-top:8px;} textarea{min-height:110px;resize:vertical;} label{display:block;margin-top:14px;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(246,242,234,0.8);} .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:4px;border:none;background:var(--brass);color:var(--ink);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;font-size:0.78rem;cursor:pointer;} .btn-ghost{background:transparent;border:1px solid rgba(246,242,234,0.25);color:var(--parchment);} .status{margin-top:16px;font-size:0.9rem;} .hidden{display:none!important;} footer{background:#0F1912;color:rgba(243,236,220,0.72);padding:40px 0 32px;} .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;}
+  @media (max-width:920px){.grid{grid-template-columns:1fr;}}
+  html, body{overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none;} html::-webkit-scrollbar, body::-webkit-scrollbar{width:0;height:0;display:none;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="brownes-of-naas.html" class="logo"><span class="line1">Brownes</span><span class="line2">Of Naas · Est. 1990</span></a>
+    <a href="all-products.html" style="color:var(--parchment);text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;">Back to catalogue</a>
+  </div>
+</header>
+<section class="panel">
+  <div class="wrap frame">
+    <div class="grid">
+      <div class="login-box">
+        <h2>Owner login</h2>
+        <p style="color:rgba(246,242,234,0.82);">Sign in to update product records and replace item images.</p>
+        <form id="loginForm">
+          <label>Username<input name="username" value="owner" required></label>
+          <label>Password<input type="password" name="password" required></label>
+          <div style="margin-top:16px;"><button class="btn" type="submit">Log in</button></div>
+        </form>
+        <div class="status" id="authStatus"></div>
+      </div>
+
+      <div class="edit-box hidden" id="editBox">
+        <h2>Edit product</h2>
+        <form id="editForm" enctype="multipart/form-data">
+          <label>Title<input id="title" name="title" required></label>
+          <label>Tagline<input id="tagline" name="tagline" required></label>
+          <label>Price<input id="price" name="price" required></label>
+          <label>Description<textarea id="description" name="description" required></textarea></label>
+          <label>Features (one per line)<textarea id="features" name="features" placeholder="Feature one&#10;Feature two"></textarea></label>
+          <label>Replace images<input type="file" name="images" multiple accept="image/*"></label>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn" type="submit">Save changes</button>
+            <a class="btn btn-ghost" href="all-products.html">Cancel</a>
+          </div>
+        </form>
+        <div class="status" id="editStatus"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div><strong style="color:var(--parchment);">Brownes of Naas</strong><br><small>Menswear on Main Street since 1990.</small></div>
+    <small>33b North Main Street, Naas, Co. Kildare, W91 TA48</small>
+  </div>
+</footer>
+<script>
+  const loginForm = document.getElementById('loginForm');
+  const editBox = document.getElementById('editBox');
+  const authStatus = document.getElementById('authStatus');
+  const editForm = document.getElementById('editForm');
+  const editStatus = document.getElementById('editStatus');
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+
+  async function checkSession() {
+    const res = await fetch('/api/session');
+    const data = await res.json();
+    if (data.isOwner) {
+      editBox.classList.remove('hidden');
+      authStatus.textContent = 'Owner session active.';
+      if (productId) loadProduct(productId);
+    }
+  }
+
+  async function loadProduct(id) {
+    const res = await fetch(`/api/products/${id}`);
+    const product = await res.json();
+    document.getElementById('title').value = product.title || '';
+    document.getElementById('tagline').value = product.tagline || '';
+    document.getElementById('price').value = product.price || '';
+    document.getElementById('description').value = product.description || '';
+    document.getElementById('features').value = (product.features || []).join('\n');
+  }
+
+  loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(loginForm);
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: formData.get('username'), password: formData.get('password') })
+    });
+    const result = await response.json();
+    if (response.ok) {
+      authStatus.textContent = 'Login successful.';
+      editBox.classList.remove('hidden');
+      if (productId) loadProduct(productId);
+    } else {
+      authStatus.textContent = result.error || 'Login failed.';
+    }
+  });
+
+  editForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(editForm);
+    const response = await fetch(`/api/products/${productId}`, {
+      method: 'PUT',
+      body: formData
+    });
+    const result = await response.json();
+    if (response.ok) {
+      editStatus.textContent = 'Product updated.';
+    } else {
+      editStatus.textContent = result.error || 'Update failed.';
+    }
+  });
+
+  checkSession();
+</script>
+</body>
+</html>

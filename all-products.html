@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products | Brownes of Naas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#071524;
+    --ink-2:#0f2740;
+    --parchment:#F6F2EA;
+    --parchment-2:#E8E1CF;
+    --brass:#C9A46E;
+    --brass-light:#E4CC9B;
+    --oxblood:#8A4B36;
+    --moss:#19324A;
+    --charcoal:#1B2230;
+    --charcoal-soft:#485263;
+    --max:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--charcoal);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+  }
+  body::-webkit-scrollbar{display:none;}
+  html, body{
+    overflow-x:hidden;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar{
+    width:0;
+    height:0;
+    display:none;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:'Fraunces', serif;margin:0;}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+  header{
+    background:rgba(6,18,34,0.96);
+    border-bottom:1px solid rgba(201,164,110,0.28);
+    position:sticky;top:0;z-index:50;
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo .line1{font-family:'Fraunces', serif;color:var(--parchment);font-size:1.5rem;font-weight:600;}
+  .logo .line2{display:block;font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--brass-light);font-style:italic;margin-top:2px;}
+  .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  .nav-links a{color:var(--parchment);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.88;}
+  .nav-links a:hover{color:var(--brass-light);}
+
+  .page-hero{
+    background:
+      linear-gradient(135deg, rgba(7,21,36,0.96), rgba(15,39,64,0.95)),
+      repeating-linear-gradient(45deg, rgba(201,164,110,0.06) 0, rgba(201,164,110,0.06) 3px, transparent 3px, transparent 12px);
+    color:var(--parchment);
+    padding:88px 0 70px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:48px;align-items:end;}
+  .hero-grid h1{font-size:clamp(2.6rem,5vw,4rem);line-height:1.05;}
+  .hero-grid p{max-width:56ch;color:rgba(246,242,234,0.85);margin:20px 0 0;}
+  .hero-meta{
+    border-left:1px solid rgba(201,164,110,0.35);
+    padding-left:28px;align-self:center;
+  }
+  .hero-meta .count{font-size:3.2rem;font-family:'Fraunces', serif;color:var(--brass-light);line-height:1;}
+  .hero-meta .label{display:block;margin-top:6px;letter-spacing:0.18em;text-transform:uppercase;font-size:0.72rem;color:rgba(246,242,234,0.68);}
+
+  .catalog{padding:76px 0 100px;}
+  .catalog-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:32px;}
+  .catalog-head h2{font-size:clamp(2rem,3vw,2.8rem);}
+  .filter-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .pill{
+    border:1px solid rgba(33,29,23,0.18);
+    background:#fffdf9;
+    padding:9px 14px;border-radius:999px;
+    font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--charcoal-soft);
+  }
+
+  .product-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  .product-link{display:block;color:inherit;}
+.product-card{
+  background:#fffdf8;
+  border:1px solid rgba(33,29,23,0.12);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(8,16,26,0.05);
+  transition:transform .2s ease, box-shadow .2s ease;
+
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.product-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(8,16px,26px,0.09);
+}
+.photo-slot{
+    height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, var(--parchment-2), #ddd1af);
+    border-bottom:1px dashed rgba(33,29,23,0.25);
+    padding:20px;
+    overflow:hidden;
+}
+
+.photo-slot img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+}
+.product-card .copy{
+  padding:22px 22px 24px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+  .product-card .tag{display:inline-block;margin-bottom:12px;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--oxblood);font-weight:700;}
+  .product-card h3{font-size:1.3rem;margin-bottom:10px;}
+ .product-card p{
+  margin:0;
+  color:var(--charcoal-soft);
+  font-size:0.96rem;
+  line-height:1.6;
+
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:4;
+  overflow:hidden;
+
+  min-height:6.4em;
+}
+.read-more{
+  display:inline-block;
+  margin-top:10px;
+  margin-bottom:16px;
+  color:var(--oxblood);
+  font-weight:600;
+  text-decoration:none;
+}
+
+.read-more:hover{
+  text-decoration:underline;
+}
+.price{
+  margin-top:auto;
+  color:var(--ink);
+  font-weight:700;
+}
+  .owner-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .owner-actions a,.owner-actions button{
+    border:none;border-radius:4px;padding:9px 12px;font-size:0.72rem;
+    text-transform:uppercase;letter-spacing:0.08em;font-weight:700;cursor:pointer;
+  }
+  .owner-actions .edit-btn{background:var(--brass);color:var(--ink);}
+  .owner-actions .delete-btn{background:var(--oxblood);color:var(--parchment);}
+  .owner-actions.hidden{display:none;}
+
+  .product-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.copy h3 .product-link {
+  display: inline;
+}
+
+  footer{
+    background:#0F1912;
+    color:rgba(243,236,220,0.72);
+    padding:40px 0 32px;
+  }
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;}
+  .foot small{font-size:0.78rem;}
+
+  @media (max-width:900px){
+    .hero-grid,.upload-grid,.product-grid{grid-template-columns:1fr;}
+    .hero-meta{border-left:none;border-top:1px solid rgba(201,164,110,0.35);padding-left:0;padding-top:24px;}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    .nav-links{display:none;}
+    .product-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="brownes-of-naas.html" class="logo">
+      <span class="line1">Brownes</span>
+      <span class="line2">Of Naas · Est. 1990</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="brownes-of-naas.html#brands">Products</a></li>
+      <li><a href="brownes-of-naas.html#story">Our Story</a></li>
+      <li><a href="brownes-of-naas.html#services">In Store</a></li>
+      <li><a href="brownes-of-naas.html#visit">Visit Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>All Products</h1>
+      <p>Browse the full Brownes of Naas product range from suits and tailored separates to footwear, knitwear, and gifting essentials.</p>
+    </div>
+    <div class="hero-meta">
+      <div class="count">40+</div>
+      <span class="label">Selected pieces</span>
+    </div>
+  </div>
+</section>
+
+<section class="catalog">
+  <div class="wrap">
+    <div class="catalog-head">
+        <h2>Browse the collection</h2>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <strong style="color:var(--parchment);">Brownes of Naas</strong><br>
+      <small>Menswear on Main Street since 1990.</small>
+    </div>
+    <small>33b North Main Street, Naas, Co. Kildare, W91 TA48</small>
+  </div>
+</footer>
+
+<script>
+  const productGrid = document.getElementById('productGrid');
+
+  async function loadProducts() {
+    const response = await fetch('/api/products');
+    const products = await response.json();
+    const sessionResponse = await fetch('/api/session');
+    const sessionData = await sessionResponse.json();
+
+productGrid.innerHTML = products.map((product) => `
+  <article class="product-card">
+
+    <a class="product-link" href="single-product.html?id=${encodeURIComponent(product.id)}">
+      <div class="photo-slot">
+        ${
+          product.images?.[0]?.path
+            ? `<img src="${product.images[0].path}" alt="${product.title}">`
+            : product.title
+        }
+      </div>
+    </a>
+
+    <div class="copy">
+
+      <span class="tag">${product.tagline}</span>
+
+      <h3>
+        <a class="product-link" href="single-product.html?id=${encodeURIComponent(product.id)}">
+          ${product.title}
+        </a>
+      </h3>
+
+      <p>${product.description}</p>
+
+      <a class="read-more"
+         href="single-product.html?id=${encodeURIComponent(product.id)}">
+         Read More →
+      </a>
+
+      <div class="price">${product.price}</div>
+
+      <div class="owner-actions ${sessionData.isOwner ? '' : 'hidden'}">
+        <a class="edit-btn"
+           href="product-edit.html?id=${encodeURIComponent(product.id)}">
+          Edit
+        </a>
+
+        <button class="delete-btn"
+                data-id="${product.id}"
+                type="button">
+          Delete
+        </button>
+      </div>
+
+    </div>
+
+  </article>
+`).join('');
+
+    if (sessionData.isOwner) {
+      document.querySelectorAll('.delete-btn').forEach((button) => {
+        button.addEventListener('click', async (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const id = button.dataset.id;
+          const confirmDelete = confirm('Delete this product from the catalogue?');
+          if (!confirmDelete) return;
+          await fetch(`/api/products/${id}`, { method: 'DELETE' });
+          loadProducts();
+        });
+      });
+    }
+  }
+
+  loadProducts();
+</script>
+
+</body>
+</html>

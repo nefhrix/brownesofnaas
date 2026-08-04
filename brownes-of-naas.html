@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brownes of Naas, Main Street</title>
+<meta name="description" content="Brownes of Naas, premium menswear on Main Street, Naas. Family-run since 1990. Barbour, GANT, Tommy Hilfiger, Hugo Boss, Ralph Lauren, Eton and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#071524;
+    --ink-2:#0f2740;
+    --parchment:#F6F2EA;
+    --parchment-2:#E8E1CF;
+    --brass:#C9A46E;
+    --brass-light:#E4CC9B;
+    --oxblood:#8A4B36;
+    --moss:#19324A;
+    --charcoal:#1B2230;
+    --charcoal-soft:#485263;
+    --max:1200px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html, body{
+    overflow-x:hidden;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar{
+    width:0;
+    height:0;
+    display:none;
+  }
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--charcoal);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-y:auto;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--brass);
+    font-size:0.95rem;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--brass);
+    display:inline-block;
+  }
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:0.88rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:15px 26px;
+    border-radius:2px;
+    transition:transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--ink);
+  }
+  .btn-primary:hover{
+    background:var(--brass-light);
+    transform:translateY(-2px);
+  }
+  .btn-ghost{
+    border-color:rgba(243,236,220,0.4);
+    color:var(--parchment);
+  }
+  .btn-ghost:hover{
+    border-color:var(--brass);
+    color:var(--brass-light);
+    transform:translateY(-2px);
+  }
+  .btn-ghost-dark{
+    border-color:rgba(33,29,23,0.3);
+    color:var(--charcoal);
+  }
+  .btn-ghost-dark:hover{
+    border-color:var(--oxblood);
+    color:var(--oxblood);
+    transform:translateY(-2px);
+  }
+
+  /* ---------- stitched divider signature ---------- */
+  .stitch{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0;
+    padding:0;
+    position:relative;
+  }
+  .stitch svg{display:block;width:100%;height:34px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(6,18,34,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(201,164,110,0.25);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:var(--max);
+    margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    color:var(--parchment);
+    line-height:1;
+    text-decoration:none;
+  }
+  .logo .line1{
+    font-size:1.5rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+  }
+  .logo .line2{
+    font-size:0.68rem;
+    font-style:italic;
+    letter-spacing:0.28em;
+    color:var(--brass-light);
+    text-transform:uppercase;
+    margin-top:2px;
+    display:block;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--parchment);
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:500;
+    opacity:0.88;
+    transition:opacity .2s ease, color .2s ease;
+    position:relative;
+  }
+  .nav-links a:hover{opacity:1;color:var(--brass-light);}
+  .nav-phone{
+    display:flex;
+    align-items:center;
+    gap:36px;
+  }
+  .nav-phone a.callnum{
+    text-decoration:none;
+    color:var(--brass-light);
+    font-weight:600;
+    font-size:0.85rem;
+    letter-spacing:0.03em;
+    white-space:nowrap;
+  }
+  .burger{display:none;background:none;border:none;color:var(--parchment);font-size:1.6rem;cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      repeating-linear-gradient(45deg, rgba(201,164,110,0.05) 0, rgba(201,164,110,0.05) 2px, transparent 2px, transparent 14px),
+      repeating-linear-gradient(-45deg, rgba(246,242,234,0.035) 0, rgba(246,242,234,0.035) 2px, transparent 2px, transparent 14px),
+      linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 60%, #17324e 100%);
+    color:var(--parchment);
+    overflow:hidden;
+    padding:104px 32px 90px;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-120px;
+    top:-120px;
+    width:480px;
+    height:480px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(201,164,110,0.16) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    position:relative;
+    display:grid;
+    grid-template-columns:1.1fr 0.7fr;
+    gap:60px;
+    align-items:end;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5vw, 4.1rem);
+    line-height:1.06;
+    font-weight:600;
+    color:var(--parchment);
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--brass-light);
+  }
+  .hero-sub{
+    margin-top:26px;
+    max-width:46ch;
+    font-size:1.08rem;
+    color:rgba(243,236,220,0.82);
+  }
+  .hero-ctas{
+    margin-top:38px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .hero-badge{
+    justify-self:end;
+    text-align:right;
+    border-left:1px solid rgba(201,164,110,0.4);
+    padding-left:28px;
+  }
+  .hero-badge .est{
+    font-family:'Fraunces', serif;
+    font-size:3.6rem;
+    color:var(--brass);
+    line-height:0.9;
+    font-weight:600;
+  }
+  .hero-badge .est-label{
+    display:block;
+    margin-top:10px;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:rgba(243,236,220,0.65);
+  }
+  .hero-badge .addr{
+    margin-top:22px;
+    font-size:0.85rem;
+    color:rgba(243,236,220,0.75);
+    line-height:1.7;
+  }
+
+  /* ---------- brand strip ---------- */
+  .brandstrip{
+    background:var(--parchment-2);
+    border-top:1px solid rgba(33,29,23,0.08);
+    border-bottom:1px solid rgba(33,29,23,0.08);
+    padding:26px 0;
+    overflow:hidden;
+  }
+  .brandstrip .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:18px 34px;
+  }
+  .brandstrip .label{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:0.85rem;
+    color:var(--charcoal-soft);
+    white-space:nowrap;
+  }
+  .brand-names{
+    display:flex;
+    gap:34px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .brand-names span{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--charcoal);
+    letter-spacing:0.01em;
+    white-space:nowrap;
+  }
+
+  /* ---------- generic section ---------- */
+  section{padding:100px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 3.4vw, 2.7rem);
+    font-weight:600;
+    color:var(--charcoal);
+  }
+  .section-head p{
+    margin-top:18px;
+    color:var(--charcoal-soft);
+    font-size:1.05rem;
+    max-width:52ch;
+  }
+
+  /* ---------- story ---------- */
+  .story{background:var(--parchment);}
+  .story-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+  }
+  .story-copy p{
+    color:var(--charcoal-soft);
+    font-size:1.04rem;
+    margin:0 0 18px;
+  }
+  .story-copy p:last-child{margin-bottom:0;}
+  .family-image img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+    object-fit:cover;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .gphoto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+  .swatch-panel{
+    background:var(--ink);
+    border-radius:4px;
+    padding:44px;
+    position:relative;
+    color:var(--parchment);
+    min-height:380px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+  }
+  .swatch-panel::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(201,164,110,0.08) 0, rgba(201,164,110,0.08) 3px, transparent 3px, transparent 16px),
+      repeating-linear-gradient(-45deg, rgba(246,242,234,0.05) 0, rgba(246,242,234,0.05) 3px, transparent 3px, transparent 16px);
+  }
+  .swatch-panel .btnhole{
+    position:relative;
+    width:34px;height:34px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--brass-light), var(--brass) 60%, #8f6a30 100%);
+    box-shadow:0 3px 10px rgba(0,0,0,0.35);
+  }
+  .swatch-panel .btnhole::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    margin:auto;
+    width:4px;height:4px;
+    border-radius:50%;
+    background:#3a2a10;
+    box-shadow:8px 0 0 #3a2a10, -8px 0 0 #3a2a10, 0 8px 0 #3a2a10, 0 -8px 0 #3a2a10;
+  }
+  .swatch-quote{
+    position:relative;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--parchment);
+  }
+  .swatch-quote span{color:var(--brass-light);}
+  .swatch-foot{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:rgba(243,236,220,0.6);
+  }
+
+  .stats-row{
+    margin-top:64px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    border-top:1px solid rgba(33,29,23,0.12);
+    padding-top:44px;
+    justify-items:center;
+    text-align:center;
+  }
+  .stat{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .stat b{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:2.6rem;
+    font-weight:600;
+    color:var(--oxblood);
+  }
+  .stat span{
+    font-size:0.85rem;
+    color:var(--charcoal-soft);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- services ---------- */
+  .services{background:var(--moss);color:var(--parchment);}
+  .services .eyebrow{color:var(--brass-light);}
+  .services .eyebrow::before{background:var(--brass-light);}
+  .services .section-head h2{color:var(--parchment);}
+  .services .section-head p{color:rgba(243,236,220,0.78);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(243,236,220,0.18);
+    border:1px solid rgba(243,236,220,0.18);
+  }
+  .service-card{
+    background:var(--moss);
+    padding:40px 34px;
+  }
+  .service-card .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--brass-light);
+    font-size:0.95rem;
+    margin-bottom:22px;
+    display:block;
+  }
+  .service-card h3{
+    font-size:1.4rem;
+    color:var(--parchment);
+    margin-bottom:14px;
+  }
+  .service-card p{
+    color:rgba(243,236,220,0.78);
+    font-size:0.98rem;
+    margin:0;
+  }
+
+  /* ---------- gallery placeholders ---------- */
+  .gallery{background:var(--parchment);}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    grid-template-rows:auto auto;
+    gap:16px;
+  }
+  .gphoto{
+    position:relative;
+    border-radius:3px;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--parchment-2), #ded2b3);
+    border:1px dashed rgba(33,29,23,0.28);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:200px;
+  }
+  .gphoto.tall{grid-row:span 2; min-height:420px;}
+  .gphoto .ph-label{
+    text-align:center;
+    color:var(--charcoal-soft);
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:0 20px;
+  }
+  .gphoto .ph-label small{
+    display:block;
+    margin-top:6px;
+    font-size:0.7rem;
+    opacity:0.7;
+    text-transform:none;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--ink);color:var(--parchment);}
+  .visit .eyebrow{color:var(--brass-light);}
+  .visit .eyebrow::before{background:var(--brass-light);}
+  .visit-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+  }
+  .visit h2{
+    font-size:clamp(2rem, 3.2vw, 2.6rem);
+    color:var(--parchment);
+    margin-bottom:30px;
+  }
+  .info-list{
+    list-style:none;
+    margin:0 0 36px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .info-list li{
+    display:flex;
+    gap:16px;
+  }
+  .info-list .ico{
+    width:20px;height:20px;
+    flex:none;
+    margin-top:3px;
+    color:var(--brass);
+  }
+  .info-list .lbl{
+    display:block;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:rgba(243,236,220,0.55);
+    margin-bottom:4px;
+  }
+  .info-list .val{
+    font-size:1.02rem;
+    color:var(--parchment);
+  }
+  .info-list a.val{text-decoration:none;}
+  .info-list a.val:hover{color:var(--brass-light);}
+  .map-frame{
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid rgba(188,143,73,0.3);
+    min-height:420px;
+  }
+  .map-frame iframe{width:100%;height:100%;min-height:420px;border:0;filter:sepia(12%) saturate(85%);}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:#0F1912;
+    color:rgba(243,236,220,0.7);
+    padding:56px 0 30px;
+  }
+  .foot-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:32px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(243,236,220,0.12);
+  }
+  .foot-logo .line1{font-family:'Fraunces', serif;font-size:1.3rem;font-weight:600;color:var(--parchment);}
+  .foot-logo .line2{display:block;font-size:0.65rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--brass-light);margin-top:4px;font-style:italic;}
+  .foot-nav{display:flex;gap:30px;flex-wrap:wrap;}
+  .foot-nav a{text-decoration:none;color:rgba(243,236,220,0.72);font-size:0.85rem;}
+  .foot-nav a:hover{color:var(--brass-light);}
+  .foot-social{display:flex;gap:16px;}
+  .foot-social a{
+    width:36px;height:36px;
+    border:1px solid rgba(243,236,220,0.25);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--parchment);
+    text-decoration:none;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .foot-social a:hover{border-color:var(--brass-light);color:var(--brass-light);}
+  .foot-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    padding-top:24px;
+    font-size:0.78rem;
+    color:rgba(243,236,220,0.45);
+  }
+
+  .video-wrapper{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.video-wrapper iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+}
+  /* ---------- responsive ---------- */
+  @media (max-width: 880px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-badge{justify-self:start;text-align:left;border-left:none;border-top:1px solid rgba(188,143,73,0.4);padding-left:0;padding-top:24px;margin-top:10px;}
+    .story-grid{grid-template-columns:1fr;gap:40px;}
+    .stats-row{grid-template-columns:1fr 1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+    .gphoto.tall{grid-row:auto;min-height:220px;}
+    .visit-grid{grid-template-columns:1fr;}
+    .nav-phone{gap:14px;}
+  }
+  @media (max-width: 560px){
+    .wrap, .nav, .hero, section{padding-left:20px;padding-right:20px;}
+    .hero{padding-top:90px;}
+    section{padding:64px 0;}
+    .stats-row{grid-template-columns:1fr;gap:26px;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .foot-top{flex-direction:column;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="logo">
+      <span class="line1">Brownes</span>
+      <span class="line2">Of Naas · Est. 1990</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="all-products.html">Products</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#services">In Store</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+    </ul>
+    <div class="nav-phone">
+      <a class="callnum" href="tel:+35345866245">045 866 245</a>
+      <button class="burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ---------------- HERO ---------------- -->
+  <section class="hero" style="padding-top:104px;">
+    <div class="hero-inner">
+      <div>
+        <h1>Sharply dressed <br> since 1990.</h1>
+        <p class="hero-sub">We are stockists of premium menswear brands such as Grant, Barbour, Tommy Hilfiger, Bugatti, Eton and many more. We supply many leading brands of both formal and casual menswear.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#visit">Get Directions</a>
+          <a class="btn btn-ghost" href="tel:+35345866245">Call the Shop</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <span class="est">35+</span>
+        <span class="est-label">Years on the same street</span>
+        <p class="addr">33b North Main Street<br>Naas, Co. Kildare<br>W91 TA48</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- stitched divider -->
+  <div class="stitch" style="background:var(--ink-2);">
+    <svg viewBox="0 0 1200 34" preserveAspectRatio="none"><line x1="0" y1="17" x2="1200" y2="17" stroke="#BC8F49" stroke-width="1.5" stroke-dasharray="10 9" opacity="0.55"/><circle cx="600" cy="17" r="6" fill="#BC8F49"/><circle cx="600" cy="17" r="1.6" fill="#1d3226"/></svg>
+  </div>
+
+  <!-- ---------------- BRAND STRIP ---------------- -->
+  <div class="brandstrip" id="brands">
+    <div class="wrap">
+      <span class="label">In store &amp; stocked now</span>
+      <div class="brand-names">
+        <span>Barbour</span>
+        <span>GANT</span>
+        <span>Tommy Hilfiger</span>
+        <span>Hugo Boss</span>
+        <span>Ralph Lauren</span>
+        <span>Eton</span>
+        <span>Bugatti</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------- STORY ---------------- -->
+  <section class="story" id="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-copy">
+          <p class="" style="color:var(--oxblood);">Our Story</p>
+          <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);margin-bottom:22px;">Family Run</h2>
+          <p>At Brownes Menswear we have been styling the men of Kildare and beyond for over 35 years.</p>
+          <p>We are a proud member of the Naas community, based on North Main Street right in the heart of town.</p>
+          <p>Come in, take your time, and let us help you put a proper outfit together, whether its formal, casual, or somewhere in between.</p>
+        </div>
+    <div class="family-image">
+    <div class="video-wrapper">
+        <iframe
+           src="https://player.vimeo.com/video/290447340?h=26890d3585"
+            title="Brownes of Naas"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <b>1990</b>
+          <span>The year we opened our doors</span>
+        </div>
+        <div class="stat">
+          <b>7+</b>
+          <span>Premium brands on the rails</span>
+        </div>
+        <div class="stat">
+          <b>1</b>
+          <span>Main Street shop, no branches</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stitch" style="background:var(--parchment);">
+    <svg viewBox="0 0 1200 34" preserveAspectRatio="none"><line x1="0" y1="17" x2="1200" y2="17" stroke="#7C3024" stroke-width="1.5" stroke-dasharray="10 9" opacity="0.4"/><circle cx="600" cy="17" r="6" fill="#7C3024"/><circle cx="600" cy="17" r="1.6" fill="#F3ECDC"/></svg>
+  </div>
+
+  <!-- ---------------- SERVICES ---------------- -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What We're Here For</p>
+        <h2>More than a rail of shirts.</h2>
+        <p>Every visit gets the same thing: someone who'll actually help, not just point.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <span class="num">Formal</span>
+          <h3>Suits &amp; Occasion Wear</h3>
+          <p>Weddings, interviews, funerals, communions, we get you properly fitted out with help from staff who'll tell you the truth about how it sits.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">Casual</span>
+          <h3>Everyday &amp; Weekend</h3>
+          <p>Barbour jackets, GANT knits, Bugatti chinos, the kind of pieces you reach for every week, not just once a year.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">Gifting</span>
+          <h3>Gift Cards Welcome</h3>
+          <p>One4all and Me2You gift cards accepted in store, plus our own gift vouchers if you'd rather let him choose.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- GALLERY PLACEHOLDER ---------------- -->
+  <section class="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="" style="color:var(--oxblood);">In The Shop</p>
+        <h2>Discover Our Collection</h2>
+
+      </div>
+      <div class="gallery-grid">
+<div class="gphoto tall">
+    <img src="image1.jpg" alt="Storefront">
+</div>
+
+<div class="gphoto">
+    <img src="image copy.png" alt="Inside the shop">
+</div>
+
+<div class="gphoto">
+    <img src="team.png" alt="Team">
+</div>
+
+<div class="gphoto">
+    <img src="ties.png" alt="Ties">
+</div>
+<div class="gphoto">
+    <img src="fabric.png" alt="Detail">
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- VISIT ---------------- -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="visit-grid">
+        <div>
+          <p class="eyebrow">Find Us</p>
+          <h2>On the Main Street,<br>where we've always been.</h2>
+          <ul class="info-list">
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <div>
+                <span class="lbl">Address</span>
+                <a class="val" href="https://www.google.com/maps/search/?api=1&query=Brownes+of+Naas+33B+North+Main+Street+Naas" target="_blank" rel="noopener">33b North Main Street, Naas, Co. Kildare, W91 TA48<br><span style="opacity:.65;font-size:.9em;">Near the car park and coffee shops on Main Street</span></a>
+              </div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <span class="lbl">Phone</span>
+                <a class="val" href="tel:+35345866245">045 866 245</a>
+              </div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <div>
+                <span class="lbl">Email</span>
+                <a class="val" href="mailto:shop@brownesofnaas.com">shop@brownesofnaas.com</a>
+              </div>
+            </li>
+            <li>
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div>
+                <span class="lbl">Hours</span>
+                <span class="val">Open through the week on Main Street — give us a call or check Facebook for today's hours.</span>
+              </div>
+            </li>
+          </ul>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Brownes+of+Naas+33B+North+Main+Street+Naas" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn btn-ghost" href="mailto:shop@brownesofnaas.com">Email Us</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://maps.google.com/maps?q=33B%20North%20Main%20Street%2C%20Naas%2C%20Co.%20Kildare%2C%20Ireland&t=&z=16&ie=UTF8&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Brownes of Naas"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-logo">
+        <span class="line1">Brownes</span>
+        <span class="line2">Of Naas · Est. 1990</span>
+      </div>
+      <nav class="foot-nav">
+        <a href="#brands"></a>
+        <a href="#story">Our Story</a>
+        <a href="#services">In Store</a>
+        <a href="#visit">Visit Us</a>
+      </nav>
+      <div class="foot-social">
+        <a href="https://www.facebook.com/BrownesofNaas" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/brownes_ofnaas/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://twitter.com/brownesofnaas" target="_blank" rel="noopener" aria-label="X">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.7 22H1.6l8.2-9.4L1 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.7L7.4 4H5.6L17.7 20Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Brownes of Naas. 33b North Main Street, Naas, Co. Kildare, W91 TA48.</span>
+      <span>Menswear on Main Street since 1990.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#152219;padding:24px 32px;gap:20px;border-bottom:1px solid rgba(188,143,73,0.25);';
+  });
+</script>
+
+</body>
+</html>
+
