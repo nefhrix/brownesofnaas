@@ -24,7 +24,7 @@ Thumbs.db
 *.tmp
 
 # Uploads (optional)
-uploads/
+
 
 # Railway
 .railway/
