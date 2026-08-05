@@ -497,7 +497,7 @@
     featuresEl.innerHTML = (product.features || []).map(feature => `<li>${feature}</li>`).join('');
 
     const images = product.images || [];
-    const fallbackImage = '/uploads/default-product.jpg';
+    const fallbackImage = '/uploads/default.png';
     const visibleImages = images.length ? images : [{ name: product.title, path: fallbackImage }];
 
     const carousel = document.getElementById('carousel');
