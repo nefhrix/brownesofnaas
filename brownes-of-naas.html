@@ -640,6 +640,93 @@
     height:100%;
 
 }
+
+/* ---------- testimonials ---------- */
+.testimonials{
+  background:var(--parchment-2);
+}
+
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+}
+
+.testimonial{
+  background:#fffdf8;
+  border:1px solid rgba(33,29,23,.08);
+  border-radius:8px;
+  padding:30px;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+  transition:.25s ease;
+}
+
+.testimonial:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+
+.stars{
+  color:var(--brass);
+  font-size:1rem;
+  letter-spacing:2px;
+  margin-bottom:18px;
+}
+
+.testimonial p{
+  margin:0;
+  color:var(--charcoal-soft);
+  font-size:.98rem;
+  line-height:1.7;
+}
+
+.author{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid rgba(33,29,23,.08);
+}
+
+.author strong{
+  display:block;
+  font-family:'Fraunces',serif;
+  color:var(--charcoal);
+  font-size:1.05rem;
+}
+
+.author span{
+  color:#777;
+  font-size:.82rem;
+}
+
+.review-footer{
+  margin-top:60px;
+  text-align:center;
+}
+
+.review-footer p{
+  color:var(--charcoal-soft);
+  margin-bottom:22px;
+}
+
+.review-score{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  background:#fff;
+  padding:16px 26px;
+  border-radius:50px;
+  border:1px solid rgba(33,29,23,.08);
+}
+
+.review-score b{
+  font-family:'Fraunces',serif;
+  font-size:2rem;
+  color:var(--oxblood);
+}
+
+.review-score span{
+  color:var(--charcoal-soft);
+}
   /* ---------- responsive ---------- */
   @media (max-width: 880px){
     .nav-links{display:none;}
@@ -835,7 +922,104 @@
       </div>
     </div>
   </section>
+  <section class="testimonials">
+    <div class="wrap">
 
+        <div class="section-head">
+            <p class="eyebrow">What Our Customers Say</p>
+            <h2>Trusted by generations of Kildare men.</h2>
+            <p>For over 35 years we've built our reputation one customer at a time.</p>
+        </div>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Friendly staff with modern trendy clothes which are perfect for work,
+                    casual or just everyday wear. Good value for the designer brands on offer.
+                </p>
+
+                <div class="author">
+                    <strong>New Horizons</strong>
+                    <span>Local Guide</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Love shopping here. Great selection and excellent service from friendly
+                    and helpful staff.
+                </p>
+
+                <div class="author">
+                    <strong>Ger Lawlor</strong>
+                    <span>Local Guide</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Lovely helpful staff. Always gorgeous menswear and accessories.
+                </p>
+
+                <div class="author">
+                    <strong>Rachel Byrne</strong>
+                    <span>Local Guide</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    There is only one shop in Naas with proper men's clothes.
+                    Best service, always helpful and real gentlemen.
+                    100% recommended.
+                </p>
+
+                <div class="author">
+                    <strong>Michal Piekny</strong>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Good friendly service and great clothes.
+                </p>
+
+                <div class="author">
+                    <strong>Maurice Stephens</strong>
+                    <span>Local Guide</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Great selection and very helpful staff.
+                </p>
+
+                <div class="author">
+                    <strong>Tom O'Sullivan</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="review-footer">
+
+            <div class="review-score">
+                <b>4.9★</b>
+                <span>Rated by our customers on Google Reviews</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
   <!-- ---------------- VISIT ---------------- -->
   <section class="visit" id="visit">
     <div class="wrap">
