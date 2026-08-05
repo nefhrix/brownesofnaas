@@ -3,7 +3,7 @@ const session = require('express-session');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-
+const sharp = require('sharp')
 const app = express();
 const PORT = process.env.PORT || 3000;
 const rootDir = __dirname;
@@ -44,13 +44,32 @@ function readProducts() {
 function writeProducts(products) {
   fs.writeFileSync(dataFile, JSON.stringify(products, null, 2));
 }
+async function optimiseImage(file) {
+  const filename = `${path.parse(file.filename).name}.webp`;
+  const output = path.join(uploadsDir, filename);
 
+  await sharp(file.path)
+    .resize({
+      width: 1200,
+      withoutEnlargement: true
+    })
+    .webp({ quality: 80 })
+    .toFile(output);
+
+  fs.unlinkSync(file.path);
+
+  return {
+    name: file.originalname,
+    path: `/uploads/${filename}`
+  };
+}
 function requireOwner(req, res, next) {
   if (req.session && req.session.user === 'owner') {
     return next();
   }
   return res.status(401).json({ error: 'Owner access required.' });
 }
+
 
 app.get('/', (_req, res) => {
   res.sendFile(path.join(rootDir, 'brownes-of-naas.html'));
@@ -87,7 +106,7 @@ app.get('/api/session', (req, res) => {
   res.json({ isOwner: Boolean(req.session && req.session.user === 'owner') });
 });
 
-app.post('/api/products', requireOwner, upload.array('images', 4), (req, res) => {
+app.post('/api/products', requireOwner, upload.array('images', 4), async (req, res) => {
   const products = readProducts();
   const title = String(req.body.title || '').trim();
   const tagline = String(req.body.tagline || '').trim();
@@ -102,10 +121,11 @@ app.post('/api/products', requireOwner, upload.array('images', 4), (req, res) =>
     return res.status(400).json({ error: 'Title, tagline, price and description are required.' });
   }
 
-  const uploadedImages = (req.files || []).map(file => ({
-    name: file.originalname,
-    path: `/uploads/${file.filename}`
-  }));
+  const uploadedImages = [];
+
+  for (const file of (req.files || [])) {
+    uploadedImages.push(await optimiseImage(file));
+  }
 
   const product = {
     id: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
@@ -124,7 +144,7 @@ app.post('/api/products', requireOwner, upload.array('images', 4), (req, res) =>
   res.status(201).json({ ok: true, product });
 });
 
-app.put('/api/products/:id', requireOwner, upload.array('images', 4), (req, res) => {
+app.put('/api/products/:id', requireOwner, upload.array('images', 4), async (req, res) => {
   const products = readProducts();
   const product = products.find(item => item.id === req.params.id);
 
@@ -142,10 +162,11 @@ app.put('/api/products/:id', requireOwner, upload.array('images', 4), (req, res)
     .filter(Boolean);
 
   if (req.files && req.files.length) {
-    product.images = req.files.map(file => ({
-      name: file.originalname,
-      path: `/uploads/${file.filename}`
-    }));
+    product.images = [];
+
+    for (const file of req.files) {
+      product.images.push(await optimiseImage(file));
+    }
   }
 
   writeProducts(products);

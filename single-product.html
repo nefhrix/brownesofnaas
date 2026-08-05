@@ -260,265 +260,470 @@
 
 </body>
 </html> -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Single Product | Brownes of Naas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#071524;
-    --ink-2:#0f2740;
-    --parchment:#F6F2EA;
-    --parchment-2:#E8E1CF;
-    --brass:#C9A46E;
-    --brass-light:#E4CC9B;
-    --oxblood:#8A4B36;
-    --moss:#19324A;
-    --charcoal:#1B2230;
-    --charcoal-soft:#485263;
-    --max:1180px;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Product | Brownes of Naas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #071524;
+        --ink-2: #0f2740;
+        --parchment: #f6f2ea;
+        --parchment-2: #e8e1cf;
+        --brass: #c9a46e;
+        --brass-light: #e4cc9b;
+        --oxblood: #8a4b36;
+        --moss: #19324a;
+        --charcoal: #1b2230;
+        --charcoal-soft: #485263;
+        --max: 1180px;
+      }
 
-  *{box-sizing:border-box;}
-  html, body{
-    overflow-x:hidden;
-    scrollbar-width:none;
-    -ms-overflow-style:none;
-  }
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar{
-    width:0;
-    height:0;
-    display:none;
-  }
-  body{
-    margin:0;
-    background:var(--parchment);
-    color:var(--charcoal);
-    font-family:'Work Sans', sans-serif;
-    line-height:1.6;
-    overflow-y:auto;
-  }
-  a{text-decoration:none;color:inherit;}
-  img{max-width:100%;display:block;}
-  h1,h2,h3{font-family:'Fraunces', serif;margin:0;}
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+      body {
+        margin: 0;
+        background: var(--parchment);
+        color: var(--charcoal);
+        font-family: "Work Sans", sans-serif;
+        line-height: 1.6;
+        overflow-y: auto;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Fraunces", serif;
+        margin: 0;
+      }
 
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
 
-  header{
-    background:rgba(6,18,34,0.96);
-    border-bottom:1px solid rgba(201,164,110,0.28);
-    position:sticky;top:0;z-index:50;
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 0;
-  }
-  .logo .line1{font-family:'Fraunces', serif;color:var(--parchment);font-size:1.5rem;font-weight:600;}
-  .logo .line2{display:block;font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--brass-light);font-style:italic;margin-top:2px;}
-  .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
-  .nav-links a{color:var(--parchment);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.88;}
-  .nav-links a:hover{color:var(--brass-light);}
+      header {
+        background: rgba(6, 18, 34, 0.96);
+        border-bottom: 1px solid rgba(201, 164, 110, 0.28);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+      }
+      .logo .line1 {
+        font-family: "Fraunces", serif;
+        color: var(--parchment);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      .logo .line2 {
+        display: block;
+        font-size: 0.68rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--brass-light);
+        font-style: italic;
+        margin-top: 2px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        color: var(--parchment);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.88;
+      }
+      .nav-links a:hover {
+        color: var(--brass-light);
+      }
 
-  .product-showcase{padding:72px 0 56px;background:
-      linear-gradient(150deg, rgba(7,21,36,0.95), rgba(15,39,64,0.96));
-      color:var(--parchment);
-  }
-  .product-layout{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:start;}
-.gallery-main{
-    position:relative;
-    overflow:hidden;
-}
+      .product-showcase {
+        padding: 72px 0 56px;
+        background: linear-gradient(
+          150deg,
+          rgba(7, 21, 36, 0.95),
+          rgba(15, 39, 64, 0.96)
+        );
+        color: var(--parchment);
+      }
+      .product-layout {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .gallery-main {
+        position: relative;
+        overflow: hidden;
+      }
 
-.carousel{
-    display:flex;
-    width:100%;
-    transition:transform .35s ease;
-}
+      .carousel {
+        display: flex;
+        width: 100%;
+        transition: transform 0.35s ease;
+      }
 
-.carousel img{
-    flex:0 0 100%;
-    width:100%;
-    height:auto;
-    object-fit:contain;
-    display:block;
-}
-  .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;cursor:pointer;font-size:20px;z-index:2;}
-  .prev{left:12px;}
-  .next{right:12px;}
-  .thumb-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
-  .thumb{
-    min-height:110px;border-radius:6px;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg, #f8f3e7, #e5d8b4);color:var(--charcoal-soft);
-    font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;border:1px dashed rgba(33,29,23,0.24);
-    cursor:pointer;
-    overflow:hidden;
-  }
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-  .thumb.active{border-color:var(--oxblood);color:var(--oxblood);}
+      .carousel img {
+        flex: 0 0 100%;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        z-index: 2;
+      }
+      .prev {
+        left: 12px;
+      }
+      .next {
+        right: 12px;
+      }
+      .thumb-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .thumb {
+        min-height: 110px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f8f3e7, #e5d8b4);
+        color: var(--charcoal-soft);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px dashed rgba(33, 29, 23, 0.24);
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .thumb.active {
+        border-color: var(--oxblood);
+        color: var(--oxblood);
+      }
 
-  .product-info h1{font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.08;}
-  .tagline{margin-top:14px;display:inline-block;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--brass-light);font-weight:700;}
-  .price{margin-top:18px;font-size:2.1rem;font-family:'Fraunces', serif;color:var(--brass-light);font-weight:700;}
-  .description{margin-top:18px;color:rgba(246,242,234,0.82);max-width:58ch;}
-  .features{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:10px;}
-  .features li{display:flex;align-items:center;gap:10px;color:rgba(246,242,234,0.88);}
-  .features li::before{content:"•";color:var(--brass-light);font-size:1.3rem;}
+      .product-info h1 {
+        font-size: clamp(2.2rem, 4vw, 3.3rem);
+        line-height: 1.08;
+      }
+      .tagline {
+        margin-top: 14px;
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brass-light);
+        font-weight: 700;
+      }
+      .price {
+        margin-top: 18px;
+        font-size: 2.1rem;
+        font-family: "Fraunces", serif;
+        color: var(--brass-light);
+        font-weight: 700;
+      }
+      .description {
+        margin-top: 18px;
+        color: rgba(246, 242, 234, 0.82);
+        max-width: 58ch;
+      }
+      .features {
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .features li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(246, 242, 234, 0.88);
+      }
+      .features li::before {
+        content: "•";
+        color: var(--brass-light);
+        font-size: 1.3rem;
+      }
 
-  .buy-box{
-    margin-top:26px;
-    display:flex;gap:12px;flex-wrap:wrap;
-  }
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:14px 22px;border-radius:4px;border:none;
-    background:var(--brass);color:var(--ink);font-weight:700;
-    letter-spacing:0.06em;text-transform:uppercase;font-size:0.78rem;cursor:pointer;
-  }
-  .btn-ghost{
-    background:transparent;border:1px solid rgba(246,242,234,0.36);color:var(--parchment);
-  }
+      .buy-box {
+        margin-top: 26px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 4px;
+        border: none;
+        background: var(--brass);
+        color: var(--ink);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        cursor: pointer;
+      }
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid rgba(246, 242, 234, 0.36);
+        color: var(--parchment);
+      }
 
-  .details{padding:72px 0 96px;}
-  .details-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
-  .panel{
-    background:#fffdf8;border:1px solid rgba(33,29,23,0.12);
-    border-radius:6px;padding:28px;
-  }
-  .panel h2{font-size:1.8rem;margin-bottom:12px;}
-  .panel p{margin:0;color:var(--charcoal-soft);}
+      .details {
+        padding: 72px 0 96px;
+      }
+      .details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: start;
+      }
+      .panel {
+        background: #fffdf8;
+        border: 1px solid rgba(33, 29, 23, 0.12);
+        border-radius: 6px;
+        padding: 28px;
+      }
+      .panel h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+      }
+      .panel p {
+        margin: 0;
+        color: var(--charcoal-soft);
+      }
 
-  footer{
-    background:#0F1912;
-    color:rgba(243,236,220,0.72);
-    padding:40px 0 32px;
-  }
-  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;}
-  .foot small{font-size:0.78rem;}
+      footer {
+        background: #0f1912;
+        color: rgba(243, 236, 220, 0.72);
+        padding: 40px 0 32px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .foot small {
+        font-size: 0.78rem;
+      }
 
-  @media (max-width:900px){
-    .product-layout,.details-grid{grid-template-columns:1fr;}
-  }
-  @media (max-width:640px){
-    .wrap{padding:0 20px;}
-    .nav-links{display:none;}
-    .thumb-row{grid-template-columns:1fr;}
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="wrap nav">
-    <a href="brownes-of-naas.html" class="logo">
-      <span class="line1">Brownes</span>
-      <span class="line2">Of Naas · Est. 1990</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="brownes-of-naas.html#brands">Products</a></li>
-      <li><a href="brownes-of-naas.html#story">Our Story</a></li>
-      <li><a href="brownes-of-naas.html#services">In Store</a></li>
-      <li><a href="brownes-of-naas.html#visit">Visit Us</a></li>
-    </ul>
-  </div>
-</header>
-
-<section class="product-showcase">
-  <div class="wrap product-layout">
-    <div>
-      <div class="gallery-main">
-  <div class="carousel" id="carousel"></div>
-  <button class="carousel-btn prev" id="prevBtn" type="button">&#10094;</button>
-  <button class="carousel-btn next" id="nextBtn" type="button">&#10095;</button>
-</div>
-    </div>
-
-    <div class="product-info">
-      <span class="tagline" id="tagline">Tailored menswear</span>
-      <h1 id="title">Premium Wool Suit</h1>
-      <div class="price" id="price">€249</div>
-      <p class="description" id="description">A polished, Italian-inspired wool suit designed for daily confidence and exceptional finish. Cut with a clean drape, classic lapel lines, and a smooth hand feel that works equally well for work, events, and smarter weekend styling.</p>
-
-      <ul class="features" id="features"></ul>
-
-      <div class="buy-box">
-        <a href="all-products.html" class="btn btn-ghost">Back to all products</a>
+      @media (max-width: 900px) {
+        .product-layout,
+        .details-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 0 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .thumb-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a href="brownes-of-naas.html" class="logo">
+          <span class="line1">Brownes</span>
+          <span class="line2">Of Naas · Est. 1990</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="brownes-of-naas.html#brands">Products</a></li>
+          <li><a href="brownes-of-naas.html#story">Our Story</a></li>
+          <li><a href="brownes-of-naas.html#services">In Store</a></li>
+          <li><a href="brownes-of-naas.html#visit">Visit Us</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-</section>
+    </header>
 
+    <section class="product-showcase">
+      <div class="wrap product-layout">
+        <div>
+          <div class="gallery-main">
+            <div class="carousel" id="carousel"></div>
+            <button class="carousel-btn prev" id="prevBtn" type="button">
+              &#10094;
+            </button>
+            <button class="carousel-btn next" id="nextBtn" type="button">
+              &#10095;
+            </button>
+          </div>
+        </div>
 
+        <div class="product-info">
+          <span class="tagline" id="tagline">Tailored menswear</span>
+          <h1 id="title">Premium Wool Suit</h1>
+          <div class="price" id="price">€249</div>
+          <p class="description" id="description">
+            A polished, Italian-inspired wool suit designed for daily confidence
+            and exceptional finish. Cut with a clean drape, classic lapel lines,
+            and a smooth hand feel that works equally well for work, events, and
+            smarter weekend styling.
+          </p>
 
-<footer>
-  <div class="wrap foot">
-    <div>
-      <strong style="color:var(--parchment);">Brownes of Naas</strong><br>
-      <small>Menswear on Main Street since 1990.</small>
-    </div>
-    <small>33b North Main Street, Naas, Co. Kildare, W91 TA48</small>
-  </div>
-</footer>
+          <ul class="features" id="features"></ul>
 
-<script>
-  const galleryMain = document.getElementById('galleryMain');
-  const mainImage = document.getElementById('mainImage');
-  const thumbRow = document.getElementById('thumbRow');
-  const titleEl = document.getElementById('title');
-  const taglineEl = document.getElementById('tagline');
-  const priceEl = document.getElementById('price');
-  const descriptionEl = document.getElementById('description');
-  const featuresEl = document.getElementById('features');
-  const detailSummaryEl = document.getElementById('detailSummary');
-  const detailReasonEl = document.getElementById('detailReason');
+          <div class="buy-box">
+            <a href="all-products.html" class="btn btn-ghost"
+              >Back to all products</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const params = new URLSearchParams(window.location.search);
-  const productId = params.get('id') || 'tailored-suit';
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <strong style="color: var(--parchment)">Brownes of Naas</strong><br />
+          <small>Menswear on Main Street since 1990.</small>
+        </div>
+        <small>33b North Main Street, Naas, Co. Kildare, W91 TA48</small>
+      </div>
+    </footer>
 
-  async function loadProduct() {
-    const response = await fetch(`/api/products/${productId}`);
-    if (!response.ok) {
-      titleEl.textContent = 'Product not found';
-      return;
-    }
+    <script>
+      const galleryMain = document.getElementById("galleryMain");
+      const mainImage = document.getElementById("mainImage");
+      const thumbRow = document.getElementById("thumbRow");
+      const titleEl = document.getElementById("title");
+      const taglineEl = document.getElementById("tagline");
+      const priceEl = document.getElementById("price");
+      const descriptionEl = document.getElementById("description");
+      const featuresEl = document.getElementById("features");
+      const detailSummaryEl = document.getElementById("detailSummary");
+      const detailReasonEl = document.getElementById("detailReason");
 
-    const product = await response.json();
-    titleEl.textContent = product.title;
-    taglineEl.textContent = product.tagline;
-    priceEl.textContent = `€${product.price}`;
-    descriptionEl.textContent = product.description;
-    
-    featuresEl.innerHTML = (product.features || []).map(feature => `<li>${feature}</li>`).join('');
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("id") || "tailored-suit";
 
-    const images = product.images || [];
-    const fallbackImage = '/uploads/default.png';
-    const visibleImages = images.length ? images : [{ name: product.title, path: fallbackImage }];
+      async function loadProduct() {
+        const response = await fetch(`/api/products/${productId}`);
+        if (!response.ok) {
+          titleEl.textContent = "Product not found";
+          return;
+        }
 
-    const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+        const product = await response.json();
+        titleEl.textContent = product.title;
+        taglineEl.textContent = product.tagline;
+        priceEl.textContent = `€${product.price}`;
+        descriptionEl.textContent = product.description;
 
-    carousel.innerHTML = visibleImages.map(image => `<img src="${image.path}" alt="${image.name || product.title}">`).join('');
+        featuresEl.innerHTML = (product.features || [])
+          .map((feature) => `<li>${feature}</li>`)
+          .join("");
 
-    let current = 0;
-    function updateCarousel(){
-            const gap = 24; // must match CSS
-    carousel.style.transform =
-        `translateX(calc(-${current * 100}% - ${current * gap}px))`;
-      carousel.style.transform = `translateX(-${current*100}%)`;
-    }
-    prevBtn.onclick=()=>{current=current===0?visibleImages.length-1:current-1;updateCarousel();};
-    nextBtn.onclick=()=>{current=(current+1)%visibleImages.length;updateCarousel();};
-    updateCarousel();
-  }
+        const images = product.images || [];
+        const fallbackImage = "/uploads/default.png";
+        const visibleImages = images.length
+          ? images
+          : [{ name: product.title, path: fallbackImage }];
 
-  loadProduct();
-</script>
+        const carousel = document.getElementById("carousel");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
 
-</body>
+        carousel.innerHTML = visibleImages
+          .map(
+            (image) => `<img
+  src="${image.path}"
+  loading="lazy"
+  decoding="async"
+  alt="${image.name || product.title}">`,
+          )
+          .join("");
+
+        let current = 0;
+        function updateCarousel() {
+          const gap = 24; // must match CSS
+          carousel.style.transform = `translateX(calc(-${current * 100}% - ${current * gap}px))`;
+          carousel.style.transform = `translateX(-${current * 100}%)`;
+        }
+        prevBtn.onclick = () => {
+          current = current === 0 ? visibleImages.length - 1 : current - 1;
+          updateCarousel();
+        };
+        nextBtn.onclick = () => {
+          current = (current + 1) % visibleImages.length;
+          updateCarousel();
+        };
+        updateCarousel();
+      }
+
+      loadProduct();
+    </script>
+  </body>
 </html>

@@ -201,11 +201,87 @@
     .hero-grid,.upload-grid,.product-grid{grid-template-columns:1fr;}
     .hero-meta{border-left:none;border-top:1px solid rgba(201,164,110,0.35);padding-left:0;padding-top:24px;}
   }
-  @media (max-width:640px){
-    .wrap{padding:0 20px;}
-    .nav-links{display:none;}
-    .product-grid{grid-template-columns:1fr;}
+@media (max-width:640px){
+  .wrap{
+    padding:0 16px;
   }
+
+  .nav-links{
+    display:none;
+  }
+
+  /* Smaller hero */
+  .page-hero{
+    padding:48px 0 40px;
+  }
+
+  .hero-grid h1{
+    font-size:2rem;
+  }
+
+  .hero-grid p{
+    font-size:0.9rem;
+    margin-top:14px;
+  }
+
+  .hero-meta .count{
+    font-size:2.2rem;
+  }
+
+  /* Smaller section spacing */
+  .catalog{
+    padding:48px 0 60px;
+  }
+
+  .catalog-head h2{
+    font-size:1.6rem;
+  }
+
+  /* Product cards */
+  .product-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .photo-slot{
+    aspect-ratio:4/4.8; /* slightly shorter image */
+  }
+
+  .product-card .copy{
+    padding:16px;
+  }
+
+  .product-card .tag{
+    font-size:0.6rem;
+    margin-bottom:8px;
+  }
+
+  .product-card h3{
+    font-size:1.1rem;
+    margin-bottom:8px;
+  }
+
+  .product-card p{
+    font-size:0.88rem;
+    line-height:1.5;
+    min-height:auto;
+    -webkit-line-clamp:3;
+  }
+
+  .read-more{
+    margin-top:8px;
+    margin-bottom:12px;
+    font-size:0.9rem;
+  }
+
+  .price{
+    font-size:1rem;
+  }
+
+  footer{
+    padding:28px 0 24px;
+  }
+}
 </style>
 </head>
 <body>
@@ -260,7 +336,19 @@
 
 <script>
   const productGrid = document.getElementById('productGrid');
+function imageHTML(image, alt) {
+  if (!image) return "";
 
+  return `
+    <img
+      src="${image.path}"
+      loading="lazy"
+      decoding="async"
+      width="800"
+      height="1000"
+      alt="${alt}">
+  `;
+}
   async function loadProducts() {
     const response = await fetch('/api/products');
     const products = await response.json();
@@ -272,12 +360,8 @@ productGrid.innerHTML = products.map((product) => `
 
     <a class="product-link" href="single-product.html?id=${encodeURIComponent(product.id)}">
       <div class="photo-slot">
-        ${
-          product.images?.[0]?.path
-            ? `<img src="${product.images[0].path}" alt="${product.title}">`
-            : product.title
-        }
-      </div>
+  ${imageHTML(product.images?.[0], product.title)}
+</div>
     </a>
 
     <div class="copy">
