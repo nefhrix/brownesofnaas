@@ -492,8 +492,7 @@
     taglineEl.textContent = product.tagline;
     priceEl.textContent = product.price;
     descriptionEl.textContent = product.description;
-    detailSummaryEl.textContent = product.description;
-    detailReasonEl.textContent = product.features?.[0] || 'A dependable wardrobe piece selected with care by Brownes of Naas.';
+    
     featuresEl.innerHTML = (product.features || []).map(feature => `<li>${feature}</li>`).join('');
 
     const images = product.images || [];
