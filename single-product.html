@@ -490,7 +490,7 @@
     const product = await response.json();
     titleEl.textContent = product.title;
     taglineEl.textContent = product.tagline;
-    priceEl.textContent = product.price;
+    priceEl.textContent = `€${product.price}`;
     descriptionEl.textContent = product.description;
     
     featuresEl.innerHTML = (product.features || []).map(feature => `<li>${feature}</li>`).join('');
